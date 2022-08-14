@@ -3,7 +3,7 @@
 
 #### BigDecimal currency values
 
-- Using only double to operate large amount of datas can take inprecise results. So BigDecimal was created to handle and solve this specific problem.
+- Using only double to operate a large amount of datas can give inprecise results. So BigDecimal was created to handle and solve this specific problem.
 - To use BigDecimal you must import it from java.math
 - You can follow the following steps:
  1. Converting the number into String
@@ -52,7 +52,7 @@ public class Main {
 
 ###### Widening the type - going to smaller type to larger type
 
-- It's automatic, there is not risk of losing data.
+- It's automatic, there is no risk of losing data.
 - No special syntax requirement
 
 <details> 
@@ -79,9 +79,9 @@ public class Main {
 
 ###### Narrowing the Type - going from larger type to smaller type
 
-- It needs a special sintax [ typeAiming newVarName = (typeAiming) varOrigin ] ex: byte byteValue2 = (byte) intValue2;
-- The number must be the in range size of the type you're aiming. If the number is larger than the type aimed, you will lost data
-- A double value as 3.99, if converts to interger it is going to lost the fractional numbers. Integers only handle the integer value, in this case the 3.
+- It needs a special syntax [ typeAiming newVarName = (typeAiming) varOrigin ] ex: byte byteValue2 = (byte) intValue2;
+- The number must be the in range size of the type you're aiming for. If the number is larger than the type aimed, you will lost data
+- A double value as 3.99, if converted to integer it is going to lose the fractional numbers. Integers only handle the integer value, in this case the 3.
 
 <details> 
 <summary> Code </summary>
@@ -117,7 +117,7 @@ public class Main {
 - Java supports the standard mathematical operators, and also supports more complex operators using the class called math as [ + (Addition), - (Subtraction), * (Multiplication), / (Division),  % (Remainder) ]
 - The Type of the variables in the operation can make a big difference in the result:
  - If The two variables operate with the same type, it will return the same type. ex: int + int return int
- - If There are two different type of variables in the operatio, it must return the widest type. ex: int + double return double
+ - If There are two different types of variables in the operation, it must return the widest type. ex: int + double return double
  - if you expect a fractional number, you can explicit one of the int values as double and must receive the double return into a double variable Ex. double result = (double) intValue / intValue2; it will return double into the double variable result.
 
 <details> 
