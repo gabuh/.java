@@ -31,6 +31,7 @@ myVar <-- Identifier
 - Here are the primitive data types for numbers starting with the smallest amount of memory and going to the largest amount of memory:
 
 |Data Type|Bits|Minimum|Maximmum|
+|---|---|---|
 |byte|8|-128|127|
 |short|16|-32,768|32,767|
 |int|32|-2,147,483,648|2,147,483,647|
@@ -42,6 +43,7 @@ Double values tend to be used most commonly. They give you the largest range and
 ##### Helper Class
 
 |Data type|Helper Class|
+|---|---|
 |byte|Byte|
 |short|Short|
 |int|Integer|
