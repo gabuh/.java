@@ -24,7 +24,7 @@ myVar <-- Identifier
 */
 ```
 
-</detials>
+</details>
 
 - Java naming conventions require that variable names or identifiers always start with an initial lowercase character. And then you can use camel case, using uppercase characters in the middle of the name to distinguish certain names. In fact, certain IDEs, including IntelliJ IDEA, know how to read camel cases. 
 
