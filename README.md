@@ -69,7 +69,7 @@ d <-- This is saying that this value, which could be interpreted by the compiler
 
 ```
 
-</detials>
+</details>
 
 - Double class has an intValue method, a floatValue and a toString method. toString is a special case.  All Java classes have a method named toString which is in charge of converting that object, whether it's a numeric or boolean or a more complex object to some sort of string. 
 - The toString method of the Double helper class converts the double to a simple string value. All numeric primitives have default values and they always default to a value of zero.
