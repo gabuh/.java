@@ -14,7 +14,7 @@ Java is a statically typed language and that distinguishes it from dynamic langu
 <details>
 <summary>Code</summary>
 
-```java:
+```java
 
 int myVar = 5;
 /*
@@ -58,7 +58,7 @@ Double values tend to be used most commonly. They give you the largest range and
 <details>
 <summary>Code</summary>
 
-```java:
+```java
 
 double doubleValueExample = 160.5d ;
 /*
@@ -91,7 +91,7 @@ d <-- This is saying that this value, which could be interpreted by the compiler
 <details> 
 <summary> Code </summary>
 
-``` java:
+``` java
 
 import java.math.BigDecimal; // must import BigDecimal from java.math
 
@@ -135,7 +135,7 @@ public class Main {
 <details> 
 <summary> Code </summary>
 
-```java:
+```java
 
 public class Main { 
 
@@ -163,7 +163,7 @@ public class Main {
 <details> 
 <summary> Code </summary>
 
-```java:
+```java
 
 public class Main { 
     
@@ -200,7 +200,7 @@ public class Main {
 <details> 
 <summary> Code </summary>
 
-```java:
+```java
 public class Main {
 
     public static void main(String[] args) {
@@ -245,7 +245,7 @@ Remainder: 14
 <details> 
 <summary> Code </summary>
 
-```java:
+```java
 double doubleValue = -3.9999;
 long roundedValue = Math.round(doubleValue); //round a value, This function will return a long value.
 double absValue = Math.abs(roundedValue); // Absolute value, it return absolute value
