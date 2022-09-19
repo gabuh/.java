@@ -1,7 +1,7 @@
 /* @author Gabriel n. 
  * gitHub: https://github.com/gabuh
  *
- * About: Register should keep all the users information, just to the program use as data format.
+ * About: Register should keep all the users information, just to the program use as dataBase.
  * Student and Professor informations.
  */
 import java.util.ArrayList;
@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Register{
-//    public static void main(String[] args){ // main
     List <Student> students = new ArrayList();
         
         
@@ -45,7 +44,7 @@ public class Register{
             students.add(student);
         }
         test.close();
-    // } //main
+
     
     
     }
