@@ -5,18 +5,18 @@
  * 
  */
 
-
-
 public class Student extends Person{
     
     int idStudent;
+  
     
-    
-    
-    Student(){
-       
+    Student(int studentSize){
+      idStudent = studentSize;   
+      
     }
 
-
+public int getId(){
+  return idStudent;
+}
 
 } 

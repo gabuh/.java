@@ -6,14 +6,15 @@ public class University{
     public static void main(String[] args){
         // List <Student> all=new ArrayList<>();
         
-
-        Register rg1 = new Register();
+        Register rg = new Register();
         
-        rg1.addStudent();
-
-        System.out.println(rg1.students.get(0).getName());
+        rg.addStudent();
+        rg.addStudent();
         
         
+for(int i=0;i<2;i++){
+        System.out.println(rg.students.get(i).getName()+" id: "+rg.students.get(i).getId());
+}
 
 
     }
