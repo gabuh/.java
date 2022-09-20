@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class University{     
+public class University{    
     public static void main(String[] args){
         // List <Student> all=new ArrayList<>();
         
@@ -10,6 +10,7 @@ public class University{
         
         rg.addStudent();
         rg.addStudent();
+        // rg.addCourse();
         
         
 for(int i=0;i<2;i++){
