@@ -1,25 +1,31 @@
+/* @author Gabriel n.
+ * github: https://github.com/gabuh
+ * 
+ * About:  
+ * 
+ */
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Scanner;
+// import java.util.Scanner;
 
 public class Course{
   List <Subject> subjects = new ArrayList<Subject>();
   Subject subject;
-  String nome;
+  String name;
   String description;
-  
-  
-  Course(){
-    
-    
+  int idCourse;
+
+
+  Course(int courseBuff){
+    idCourse=courseBuff;
   }  
     
-  public String[] getSubjectsNames(){
-    String[] values=new String[subjects.size()];
+  public String getSubjectsNames(){
+    String item="";
     for(int i=0;i<subjects.size();i++){
-      values[i]=(subjects.get(i).getName());
+      item=this.subjects.get(i).getName()+" ,"+item;
     }
-    return values;
+    return item;
   }
 
   
@@ -39,11 +45,14 @@ public class Course{
   public void setDescription(String description) {
     this.description = description;
   }
-  public String getNome() {
-    return nome;
+  public String getName() {
+    return name;
   }
-  public void setNome(String nome) {
-    this.nome = nome;
+  public void setNome(String name) {
+    this.name = name;
+  }
+  public int getIdCourse() {
+    return idCourse;
   }
 
 
