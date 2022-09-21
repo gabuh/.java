@@ -27,8 +27,15 @@ public class Course{
     }
     return item;
   }
-
   
+  public Subject searchSubject(String item){
+    for(int i=0;i<subjects.size();i++){ //sequential seach just to do the job right? don't judge me ;D
+      if(subjects.get(i).getName().equal(item)){
+        return subject;
+      }
+    }
+  }
+    
   public void addSubject(){
     subject = new Subject();
     subjects.add(subject);
