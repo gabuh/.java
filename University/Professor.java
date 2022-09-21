@@ -6,7 +6,7 @@
  */
 public class Professor extends Person{
     int idProfessor;
-    Subject subject;
+    private Subject subject;
     
     Professor(int id){
         idProfessor=id;

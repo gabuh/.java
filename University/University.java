@@ -8,6 +8,7 @@ public class University{
         Register rg = new Register();
         
         // rg.addStudent();
+        rg.showClassRooms();
         rg.addStudent();
         rg.addCourse();
         rg.addProfessor();

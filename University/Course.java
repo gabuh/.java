@@ -19,6 +19,11 @@ public class Course{
   Course(int courseBuff){
     this.idCourse=courseBuff;
   }  
+
+
+  public List getSubjects() {
+      return subjects;
+  }
     
   public String getSubjectsNames(){
     String item="";
@@ -37,15 +42,18 @@ public class Course{
   //   return;
   // }
     
-  public void addSubject(){
+  public void addSubject(ClassRoom cRoom){
     subject = new Subject();
+    addSubjectClassRoom(subject,cRoom);
     subjects.add(subject);
   }
   // private void removeSubject(){
 
   // }
    
-  
+  public void addSubjectClassRoom(Subject sjb,ClassRoom cRoom){
+      sjb.setClassRoom(cRoom);
+  }
 
   public String getDescription() {
     return description;
@@ -65,3 +73,4 @@ public class Course{
 
 
 }
+

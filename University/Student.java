@@ -9,7 +9,7 @@ public class Student extends Person{
     Grades grades;
     Course course;
     int idStudent;
-    // ClassRoom classRoom;
+
     
     Student(int studentSize){
       idStudent = studentSize;   
@@ -20,9 +20,9 @@ public class Student extends Person{
       grades = new Grades(this ,course.subjects);
     }    
     
-public int getId(){
-  return idStudent;
-}
+    public int getId(){
+      return idStudent;
+    }
 
 
 } 
