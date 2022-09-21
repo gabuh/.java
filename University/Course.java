@@ -9,32 +9,33 @@ import java.util.ArrayList;
 // import java.util.Scanner;
 
 public class Course{
-  List <Subject> subjects = new ArrayList<Subject>();
-  Subject subject;
-  String name;
-  String description;
-  int idCourse;
+  public List <Subject> subjects = new ArrayList<Subject>();
+  private Subject subject;
+  private String name;
+  private String description;
+  public int idCourse;
 
 
   Course(int courseBuff){
-    idCourse=courseBuff;
+    this.idCourse=courseBuff;
   }  
     
   public String getSubjectsNames(){
     String item="";
     for(int i=0;i<subjects.size();i++){
-      item=this.subjects.get(i).getName()+" ,"+item;
+      item=i+" "+this.subjects.get(i).getName()+" ,"+item;
     }
     return item;
   }
   
-  public Subject searchSubject(String item){
-    for(int i=0;i<subjects.size();i++){ //sequential seach just to do the job right? don't judge me ;D
-      if(subjects.get(i).getName().equal(item)){
-        return subject;
-      }
-    }
-  }
+  // public Subject searchSubject(String item){
+  //   for(int i=0;i<subjects.size();i++){ //sequential seach just to do the job right? don't judge me ;D
+  //     if(subjects.get(i).getName().equals(item)){
+  //       return subject;
+  //     }
+  //   }
+  //   return;
+  // }
     
   public void addSubject(){
     subject = new Subject();

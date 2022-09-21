@@ -6,19 +6,19 @@
  */
 
 public class Student extends Person{
-    Grades grade;
+    Grades grades;
     Course course;
     int idStudent;
-    
+    // ClassRoom classRoom;
     
     Student(int studentSize){
       idStudent = studentSize;   
-      grade = new grade(this);
     }
-
-public void addCourse(Course crs,){
-  
-}    
+    
+    public void addCourse(Course crs){
+      course = crs;
+      grades = new Grades(this ,course.subjects);
+    }    
     
 public int getId(){
   return idStudent;

@@ -99,10 +99,10 @@ public class Register{
            for(int i=0;i<attributes.length;i++){
                System.out.print((1+i)+" > "+attributes[i]+": ");
       
-                      if(i==0 && course.name != null){
-                          System.out.print(course.name);
-                      }if(i==1 && course.description != null){
-                          System.out.print(course.description);
+                      if(i==0 && course.getName() != null){
+                          System.out.print(course.getName());
+                      }if(i==1 && course.getDescription() != null){
+                          System.out.print(course.getDescription());
                       }if(i==2 && course.getSubjectsNames() != null){
                           System.out.print(course.getSubjectsNames());
                       }
@@ -124,11 +124,11 @@ public class Register{
                 //   input = test.nextLine();
                   course.addSubject();  //addSubject
               }else if(intInput==4){
-                      if(course.name==null){
+                      if(course.getName()==null){
                           System.out.println("You must give the course a name");
-                      }else if(course.description == null){
+                      }else if(course.getDescription() == null){
                           System.out.println("You must give the course a description");
-                      }else if(course.subject.getName() == null){
+                      }else if(course.subjects.isEmpty()){
                           System.out.println("You must give the course at least one subject");
                       }else{
                           intInput=0;
@@ -203,5 +203,7 @@ public class Register{
             }while(valueInt!=0);  
             professors.add(professor);
         }// addProfessor
+
+
 
 }

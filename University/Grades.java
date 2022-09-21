@@ -1,15 +1,22 @@
+import java.util.List;
+import java.util.ArrayList;
 public class Grades{
-  Subject subject;
+List <Subject> subjects = new ArrayList<Subject>();
   Student student;
-  int test1;
-  int test2;
-  int test3;
-  int exercises;
-  double finalGrade;
-  Grades(Student std,Subject sbj){
+
+  Grades(Student std,List<Subject> subjects2){
+    subjects = subjects2;
     student=std;  
-    subject=sbj;
+    for(int i=0;i<subjects.size();i++){
+        subjects.get(i).getName();
+    }
   }
+ 
   
+
+  
+  // remove(){
+    //subjects.clear();
+  // }
   
 }

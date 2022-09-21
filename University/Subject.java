@@ -14,6 +14,7 @@ public class Subject{
   Scanner input=new Scanner(System.in);
   private String name;
   private String description;
+  
 
   
   
