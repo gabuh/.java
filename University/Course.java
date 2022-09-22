@@ -43,7 +43,7 @@ public class Course{
   // }
     
   public void addSubject(ClassRoom cRoom){
-    subject = new Subject();
+    subject = new Subject();  
     addSubjectClassRoom(subject,cRoom);
     subjects.add(subject);
   }

@@ -18,13 +18,15 @@ public class Register{
         int Buff = 1000000;
     List <Professor> professors = new ArrayList<Professor>();
     List <Course> courses = new ArrayList<Course>();
+    List <ClassRoom> classRooms = new ArrayList<ClassRoom>();
+
         int courseBuff = 1;
-        
+        int classRoombuff=100;
         Scanner test=new Scanner(System.in);
         Student student;
         Course course;
         Professor professor;
-       
+        ClassRoom classRoom;
         
       public void addStudent(){
         student = new Student(Buff);
@@ -122,7 +124,13 @@ public class Register{
                   course.setDescription(input);  //courDescription
               }else if(intInput==3){
                 //   input = test.nextLine();
-                  course.addSubject();  //addSubject
+                    showClassRoomsAvailable();
+                    System.out.println("Choose one Room (type its id)");
+                    intInput=Integer.parseInt(test.nextLine());
+                    classRoom=getClassRoom(intInput);
+                    course.addSubject(classRoom);  //addSubject
+
+
               }else if(intInput==4){
                       if(course.getName()==null){
                           System.out.println("You must give the course a name");
@@ -204,6 +212,62 @@ public class Register{
             professors.add(professor);
         }// addProfessor
 
+        public void addClassRoom(){
+                classRoom=new ClassRoom(classRoombuff);
+                classRooms.add(classRoom);
+                System.out.println(classRoom.getClassRoom()+" Created");
+        }
 
 
+        public void showClassRoomsAvailable(){ //show all the rooms available
+            String input;
+            if(classRooms.isEmpty()){
+              System.out.println("There is no classroom available\nWould you like to create? Yes(y) No(n)");
+                input=test.nextLine();
+                if(input.equals("y")){
+                    addClassRoom();
+                }else{
+                    showClassRooms();
+                }
+            
+            }else{
+                System.out.println("There are:");
+                for(int i=0;i<classRooms.size();++i){
+                    if(classRooms.get(i).getUse()!=false){
+                        System.out.println(i+"> id:"+classRooms.get(i).getClassRoom());
+                    }
+                }
+
+            }
+        }
+
+        public void showClassRooms(){ //show all the rooms
+            if(classRooms.isEmpty()){
+                System.out.println("There is no classroom available");
+            }else{
+                System.out.println("There are:");
+                for(int i=0;i<classRooms.size();++i){
+                        System.out.println(i+"> "+classRooms.get(i).getClassRoom()+" "+(classRooms.get(i).getUse()==false?"Busy":"Avaiable"));
+                    
+                }
+
+            }
+        }
+
+        public ClassRoom getClassRoom(int idClassRoom){ 
+            int intInput;
+            for(int i=0;i<classRooms.size();i++){
+                if(classRooms.get(i).getClassRoom()==idClassRoom && classRooms.get(i).getUse()!=false){
+                    classRoom=classRooms.get(i);
+                }
+            }
+            if(classRoom.getClassRoom()!=idClassRoom){
+                showClassRoomsAvailable();
+                System.out.println("Choose one Room");
+                intInput=Integer.parseInt(test.nextLine());
+                getClassRoom(intInput);
+            }
+            return classRoom;
+        }
+        
 }

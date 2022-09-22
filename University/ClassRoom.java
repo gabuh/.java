@@ -4,6 +4,8 @@ import java.util.ArrayList;
 public class ClassRoom{
     
     private int classRoom;
+    private Boolean use=false;
+  
     List <Student> students = new ArrayList<Student>();
 
     public ClassRoom(int classRoom) {
@@ -17,6 +19,15 @@ public class ClassRoom{
     public void setClassRoom(int classRoom) {
         this.classRoom = classRoom;
     }
+
+    public Boolean getUse() {
+        return use;
+    }
+
+    public void setUse(Boolean use) {
+        this.use = use;
+    }
+
 
     public void addStudent(Student std){
         students.add(std);
