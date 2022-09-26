@@ -52,23 +52,26 @@ public class Register{
                     System.out.println();
                 }
                 System.out.println("Choose one option");
-                valueInt=Integer.parseInt(test.nextLine());
-                if(valueInt<attributes.length){
-                    System.out.println(valueInt!=5?"Type the "+attributes[valueInt-1]+" ":"Bye");
+                value=test.nextLine();
+                // TREAT ERROR
+                if(value.equals("1") || value.equals("2") || value.equals("3") || value.equals("4") || value.equals("5") ||value.equals("5")){
+                    valueInt=Integer.parseInt(value);
+                    System.out.println(value.equals("5")?"Bye":"Type the "+attributes[valueInt-1]+" ");
                 }
-                if(valueInt==1){
+                //
+                if(value.equals("1")){
                     value = test.nextLine();
                     student.setName(value);
-                }else if(valueInt==2){
+                }else if(value.equals("2")){
                     value = test.nextLine();
                     student.setGender(value);
-                }else if(valueInt==3){
+                }else if(value.equals("3")){
                     value = test.nextLine();
                     student.setAddress(value);
-                }else if(valueInt==4){
+                }else if(value.equals("4")){
                     valueInt=Integer.parseInt(test.nextLine());
                     student.setCep(valueInt);
-                }else if(valueInt==5){
+                }else if(value.equals("5")){
                         if(student.name==null){
                             System.out.println("You must give the student a name");
                         }else if(student.gender == null){
@@ -229,7 +232,6 @@ public class Register{
                 }else{
                     showClassRooms();
                 }
-            
             }else{
                 System.out.println("There are:");
                 for(int i=0;i<classRooms.size();++i){
