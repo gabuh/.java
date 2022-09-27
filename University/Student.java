@@ -23,6 +23,10 @@ public class Student extends Person{
     public int getId(){
       return idStudent;
     }
+    
+    public Course getCourse() {
+        return course;
+    }
 
 
 } 
