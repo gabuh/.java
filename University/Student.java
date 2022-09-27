@@ -9,10 +9,15 @@ public class Student extends Person{
     Grades grades;
     Course course;
     int idStudent;
-
+//add grade to a student
     
     Student(int studentSize){
       idStudent = studentSize;   
+    }
+    
+    public void getAllGrade(){
+      System.out.println(course.getName());
+      grades.showAllGrade();
     }
     
     public void addCourse(Course crs){

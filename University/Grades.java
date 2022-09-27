@@ -11,6 +11,15 @@ List <Subject> subjects = new ArrayList<Subject>();
         subjects.get(i).getName();
     }
   }
+    //I must do general calculation about the grade here.
+    // create all the subject points and get a mean
+    
+ public void showAllGrade(){
+    for(int i=0;i<subjects.size();i++){
+        System.out.println(subjects.get(i).getName()+" "+subjects.get(i).getGradePoint());
+    }
+   
+ }
  
   
 

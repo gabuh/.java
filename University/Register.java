@@ -4,9 +4,6 @@
  * About: Register should keep all the users information, just to the program use as dataBase.
  * Student and Professor informations.
  * 
- * update 20/09 
- * addStudent already ok
- * addCourse already ok
  * 
  * 
  */
@@ -94,18 +91,53 @@ public class Register{
         }// addStudent
 
         public void showStudents(){ //show all the rooms
+            int count;
+            char in[];
+            String value;
             if(students.isEmpty()){
                   System.out.println("There is no Students registered.");
             }else{
+                do{
+                count=0;
+                
                 System.out.println("There are:");
                 for(int i=0;i<students.size();++i){
                         System.out.println(students.get(i).getCourse()==null?"id: "+students.get(i).getId()+"> "+students.get(i).getName()+" There is not Course Registered":"id: "+students.get(i).getId()+"> "+students.get(i).getName()+" "+students.get(i).getCourse().getName());
-                    
                 }
+    
+               System.out.println("Type the Student id to get details or 0 to exit");
+               value=test.nextLine();
+               in = value.toCharArray();
+               for(int i=0;i<in.length;i++){
+                   if(Character.isDigit(in[i])){
+                        count++;
+                    }
+               }
+               if(count==in.length){
+                    searchStudentDetails(Integer.parseInt(value));
+                }
+
+
+            }while(value.equals("0")==false);
+
+                
 
             }
         }
 
+      public void searchStudentDetails(int id){
+        for(int i=0;i<students.size();i++){
+            if(students.get(i).getId()==id){
+              student=students.get(i);
+              break;
+            }
+        }
+                System.out.println("Name: "+student.getName());
+                student.getAllGrade();
+                System.out.println("Description: "+student.getCourse().getName());
+                // System.out.println(courses.get(i)); //rolled students maybe
+                // System.out.println(courses.get(i));
+      }
       
       public void addCourse(){
           course=new Course(courseBuff);
@@ -334,10 +366,10 @@ public class Register{
                 }
     
             }
-                if(found!=true){
-                    return null;
-                }
-            if(classRoom.getClassRoom()!=idClassRoom){
+                // if(found!=true){
+                //     return null;
+                // }
+            if(classRoom.getClassRoom()==idClassRoom){
                 showClassRoomsAvailable();
                 System.out.println("Choose one Room");
                 intInput=Integer.parseInt(test.nextLine());
