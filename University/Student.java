@@ -14,11 +14,12 @@ public class Student extends Person{
     Student(int studentSize){
       idStudent = studentSize;   
     }
-    
+    //here
     public void getAllGrade(){
-      System.out.println(course.getName());
+      // System.out.println(course.getName());
       grades.showAllGrade();
     }
+    
     
     public void addCourse(Course crs){
       course = crs;

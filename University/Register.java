@@ -126,18 +126,23 @@ public class Register{
         }
 
       public void searchStudentDetails(int id){
+        boolean flag=false;
         for(int i=0;i<students.size();i++){
             if(students.get(i).getId()==id){
               student=students.get(i);
+              flag=true;  
               break;
             }
-        }
+        } 
+          if(flag){
                 System.out.println("Name: "+student.getName());
-                student.getAllGrade();
-                System.out.println("Description: "+student.getCourse().getName());
+                // student.getAllGrade();
+                // System.out.println("Description: "+student.getCourse().getName());
                 // System.out.println(courses.get(i)); //rolled students maybe
                 // System.out.println(courses.get(i));
-      }
+              }
+            
+          }
       
       public void addCourse(){
           course=new Course(courseBuff);
