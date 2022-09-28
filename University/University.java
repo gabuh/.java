@@ -9,7 +9,7 @@ public class University{
         Register rg = new Register();
         String value;
         int intInput;
-        String options[]={"Show Courses","Add Course","Show Students","Add Student","Roll a Course","List Available Courses","List Rolled Courses"};
+        String options[]={"Show Courses","Add Course","Show Students","Add Student","Roll a Course","Add Professor","Show Professors","Create ClassRoom","Show All Classrooms","Show Aavailable Classrooms","List Available Courses","List Rolled Courses"};
         do{
 
             for(int i=0;i<options.length;i++){
@@ -27,7 +27,22 @@ public class University{
                 rg.addStudent();
             }else if(value.equals("5")){
                 //add a student in a course
+            }else if(value.equals("6")){
+                rg.addProfessor();
+            }else if(value.equals("7")){
+                rg.showProfessors();
+            }else if(value.equals("8")){
+                rg.addClassRoom();
+            }else if(value.equals("9")){
+                rg.showAllClassRooms();
+                System.out.println("press[Enter]");
+                input.nextLine();
+            }else if(value.equals("10")){
+                rg.showClassRoomsAvailable();
+                System.out.println("press[Enter]");
+                input.nextLine();
             }
+
             
             //temp
             intInput=Integer.parseInt(value);

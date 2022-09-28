@@ -26,7 +26,7 @@ public class Register{
         Professor professor;
         ClassRoom classRoom;
         
-      public void addStudent(){
+        public void addStudent(){
         student = new Student(Buff);
         Buff++;
         String value;
@@ -113,7 +113,7 @@ public class Register{
                         count++;
                     }
                }
-               if(count==in.length){
+               if(count==in.length && count!=0){
                     searchStudentDetails(Integer.parseInt(value));
                 }
 
@@ -125,7 +125,7 @@ public class Register{
             }
         }
 
-      public void searchStudentDetails(int id){
+        public void searchStudentDetails(int id){
         boolean flag=false;
         for(int i=0;i<students.size();i++){
             if(students.get(i).getId()==id){
@@ -136,20 +136,27 @@ public class Register{
         } 
           if(flag){
                 System.out.println("Name: "+student.getName());
+                System.out.println("Gender: "+student.getGender());
+                System.out.println("Address: "+student.getAddress());
+                System.out.println("Cep: "+student.getCep());
+                System.out.println("Id: "+student.getId());
+
                 // student.getAllGrade();
                 // System.out.println("Description: "+student.getCourse().getName());
                 // System.out.println(courses.get(i)); //rolled students maybe
                 // System.out.println(courses.get(i));
               }
-            
+              System.out.println("Press [Enter] to keep going");  
+              test.nextLine();
           }
       
-      public void addCourse(){
+        public void addCourse(){
           course=new Course(courseBuff);
           String input;
           int intInput;
-          boolean found=false;
-          courseBuff++;        
+          courseBuff++;
+          int count;
+          char in[];        
         
         String attributes[]={"Nome","Description","Subjects (*)","Register and Exit"}; //---------------------------------------------
         do{         
@@ -166,9 +173,20 @@ public class Register{
                       }
                   System.out.println();
               }
-
+              count=0;
+              intInput=-1;
               System.out.println("Choose one option");
-              intInput=Integer.parseInt(test.nextLine());
+              input=test.nextLine();
+              in=input.toCharArray();
+              for(int i=0;i<in.length;i++){
+                if(Character.isDigit(in[i])){
+                    count++;
+                }
+              }
+              if(count == in.length){
+                  intInput=Integer.parseInt(test.nextLine());
+              }
+              
               if(intInput<attributes.length){
                   System.out.println(intInput!=5?"Type the "+attributes[intInput-1]+" ":"Bye");
               }
@@ -181,20 +199,38 @@ public class Register{
               }else if(intInput==3){
                 //   input = test.nextLine();
                     do{
+                        count=0;
+                        intInput=-1;
                         showClassRoomsAvailable();
-                        System.out.println("Choose one Room (type its id)");
-                        intInput=Integer.parseInt(test.nextLine());
-                        
-                        if(getClassRoom(intInput)==null){
+                        System.out.println("Choose one Room (type its id) or type (0) to exit");
+                        input=test.nextLine();
+                        in=input.toCharArray();
+                        for(int i=0;i<in.length;i++){
+                            if(Character.isDigit(in[i])){
+                                count++;
+                            }
+                        }
+                        if(count==in.length){
+                            intInput=Integer.parseInt(input);
+                        }
+
+                        if(intInput==0){
+                            break;
+                        }else if(getClassRoom(intInput)==null){
                             continue;
                         }else{
                             classRoom=getClassRoom(intInput);
                             course.addSubject(classRoom);  //addSubject
-                            found=true;
                         }
                        
-                    }while(found==false);
-                    found=false;
+                    }while(intInput!=0);
+                    
+
+
+
+
+
+
 
               }else if(intInput==4){
                       if(course.getName()==null){
@@ -216,7 +252,7 @@ public class Register{
 
       }//addCourse
 
-      public void showCourses(){ //show all the rooms
+        public void showCourses(){ //show all the rooms
         if(courses.isEmpty()){
               System.out.println("There is no Courses registered.");
         }else{
@@ -249,8 +285,7 @@ public class Register{
         }
     }
 
-
-    public void searchCourseDetails(int id){
+        public void searchCourseDetails(int id){
         for(int i=0;i<courses.size();i++){
             if(courses.get(i).getIdCourse()==id){
                 System.out.println("Name: "+courses.get(i).getName());
@@ -260,13 +295,17 @@ public class Register{
                 // System.out.println(courses.get(i));
             }
         }
+        System.out.println("Press [Enter] to keep going");  
+        test.nextLine();
     }
 
-      public void addProfessor(){
+        public void addProfessor(){
         professor = new Professor(Buff);
         Buff++;
         String value;
         int valueInt=-1;
+        char in[];
+        int count;
 
         String attributes[]={"Name","Gender","Address","CEP","Register and Exit"};
          do{         
@@ -285,8 +324,19 @@ public class Register{
                         }
                     System.out.println();
                 }
+                count=0;
+                valueInt=-1;
                 System.out.println("Choose one option");
-                valueInt=Integer.parseInt(test.nextLine());
+                value = test.nextLine();
+                in=value.toCharArray();
+                for(int i=0;i<in.length;i++){
+                    if(Character.isDigit(in[i])){
+                        count++;
+                    }
+                }
+                if(count==in.length){
+                    valueInt=Integer.parseInt(value);
+                }
                 if(valueInt<attributes.length){
                     System.out.println(valueInt!=5?"Type the "+attributes[valueInt-1]+" ":"Bye");
                 }
@@ -323,9 +373,66 @@ public class Register{
             professors.add(professor);
         }// addProfessor
 
-        public void addClassRoom(){
+        public void showProfessors(){ //show all the rooms
+            int count;
+            char in[];
+            String value;
+            if(professors.isEmpty()){
+                  System.out.println("There is no Professors registered.");
+            }else{
+                do{
+                count=0;
+                
+                System.out.println("There are:");
+                for(int i=0;i<professors.size();++i){
+                        System.out.println(professors.get(i).getSubjectName()==null?"id: "+professors.get(i).getIdProfessor()+"> "+professors.get(i).getName()+" There is not Course Registered":"id: "+professors.get(i).getIdProfessor()+"> "+professors.get(i).getName()+" "+professors.get(i).getSubjectName());
+                }
+    
+               System.out.println("Type the Professor id to get details or 0 to exit");
+               value=test.nextLine();
+               in = value.toCharArray();
+               for(int i=0;i<in.length;i++){
+                   if(Character.isDigit(in[i])){
+                        count++;
+                    }
+               }
+               if(count==in.length){
+                    searchProfessorDetails(Integer.parseInt(value));
+                }
+
+
+            }while(value.equals("0")==false);
+
+                
+
+            }
+        }
+
+        public void searchProfessorDetails(int id){
+        boolean flag=false;
+        for(int i=0;i<professors.size();i++){
+            if(professors.get(i).getIdProfessor()==id){
+              professor=professors.get(i);
+              flag=true;  
+              break;
+            }
+        } 
+          if(flag){
+              System.out.println("Name: "+professor.getName());
+              System.out.println(professor.getSubjectName()!=null?"Subject: "+professor.getSubjectName():"Subject: Mastering Nothing");
+                // student.getAllGrade();
+                // System.out.println("Description: "+student.getCourse().getName());
+                // System.out.println(courses.get(i)); //rolled professor maybe
+                // System.out.println(courses.get(i));
+              }
+            System.out.println("Press [Enter] to keep going");  
+            test.nextLine();
+          }
+
+        public void addClassRoom(){ 
                 classRoom=new ClassRoom(classRoombuff);
                 classRooms.add(classRoom);
+                classRoombuff++;
                 System.out.println(classRoom.getClassRoom()+" Created");
         }
 
@@ -336,11 +443,9 @@ public class Register{
                 input=test.nextLine();
                 if(input.equals("y")){
                     addClassRoom();
-                }else{
-                    showClassRooms();
                 }
             }else{
-                showClassRooms();
+                showAllClassRooms();
                 System.out.println("Would you like to create more? (y) (n)");
                 input=test.nextLine();
                 if(input.equals("y")){
@@ -349,7 +454,7 @@ public class Register{
             }
         }
 
-        public void showClassRooms(){ //show all the rooms
+        public void showAllClassRooms(){ //show all the rooms
             if(classRooms.isEmpty()){
                 System.out.println("There is no classroom available");
             }else{
@@ -362,23 +467,11 @@ public class Register{
         }
 
         public ClassRoom getClassRoom(int idClassRoom){ 
-            int intInput;
-            boolean found=false;
             for(int i=0;i<classRooms.size();i++){
                 if(classRooms.get(i).getClassRoom()==idClassRoom && classRooms.get(i).getUse()!=false){
-                    classRoom=classRooms.get(i);
-                    found=true;
+                    return classRooms.get(i);
                 }
     
-            }
-                // if(found!=true){
-                //     return null;
-                // }
-            if(classRoom.getClassRoom()==idClassRoom){
-                showClassRoomsAvailable();
-                System.out.println("Choose one Room");
-                intInput=Integer.parseInt(test.nextLine());
-                getClassRoom(intInput);
             }
             return classRoom;
         }

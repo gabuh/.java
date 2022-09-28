@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class Course{
   public List <Subject> subjects = new ArrayList<Subject>();
+  public List <Student> students = new ArrayList<Student>();
   private Subject subject;
   private String name;
   private String description;
@@ -69,6 +70,10 @@ public class Course{
   }
   public int getIdCourse() {
     return idCourse;
+  }
+
+  public int getStudentsQuantity(){
+    return students.size();
   }
 
 

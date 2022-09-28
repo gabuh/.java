@@ -22,17 +22,17 @@ public class Subject{
 
 
   Subject(){
-    int intInput;
+    String value;
     do{
       System.out.println("Subject Name ?");
       name=input.nextLine();
       System.out.println("Subject Description?");
       description=input.nextLine();
      System.out.println("\n\nName: "+name+" Description: "+description+" \nComfirm( Type 1 ) Change( Type 0 )");
-      intInput=Integer.parseInt(input.nextLine());
+      value=input.nextLine();
       
       
-    }while(intInput != 1);  
+    }while(value.equals("1"));  
   }
 
   public String getName() {

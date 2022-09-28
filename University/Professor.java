@@ -5,8 +5,9 @@
  * 
  */
 public class Professor extends Person{
-    int idProfessor;
-    private Subject subject;
+    private int idProfessor;
+    Subject subject;
+
     
     Professor(int id){
         idProfessor=id;
@@ -14,5 +15,12 @@ public class Professor extends Person{
     
     public int getIdProfessor() {
         return idProfessor;
+    }
+
+    public String getSubjectName(){
+        if(subject!=null){
+            return subject.getName();
+        }
+        return null;
     }
 }

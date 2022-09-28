@@ -16,19 +16,18 @@ List <Subject> subjects = new ArrayList<Subject>();
     // I cannot understand this.
     
     
- public void showAllGrade(){
-   String value;
-   if(subjects.isEmpty()){
-      System.out.println("There isn't Course");
-   }else {
-    for(int i=0;i<subjects.size();i++){
-        System.out.println(subjects.get(i).getName()+" "+subjects.get(i).getGradePoint());
-    }
-   }
-   
- }
+//  public void showAllGrade(){
+//    String value;
+//    if(subjects.isEmpty()){
+//       System.out.println("There isn't Course");
+//    }else {
+//     for(int i=0;i<subjects.size();i++){
+//         System.out.println(subjects.get(i).getName()+" "+subjects.get(i).getGradePoint());
+//     }
+//    }
+// 
+//  }
  
-  
 
   
   // remove(){
