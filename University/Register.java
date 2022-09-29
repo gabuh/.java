@@ -31,9 +31,12 @@ public class Register{
         Buff++;
         String value;
         int valueInt=-1;
+        char in[];
+        int count;
 
         String attributes[]={"Name","Gender","Address","CEP","Register and Exit"};
          do{         
+              count=0;
               System.out.println("Student id: "+student.getId());        
              for(int i=0;i<attributes.length;i++){
                  System.out.print((1+i)+" > "+attributes[i]+": ");
@@ -51,11 +54,19 @@ public class Register{
                 }
                 System.out.println("Choose one option");
                 value=test.nextLine();
-                // TREAT ERROR
-                if(value.equals("1") || value.equals("2") || value.equals("3") || value.equals("4") || value.equals("5") ||value.equals("5")){
-                    valueInt=Integer.parseInt(value);
-                    System.out.println(value.equals("5")?"Exiting":"Type the "+attributes[valueInt-1]+" ");
+                in=value.toCharArray();
+                for(int i=0;i<in.length;i++){
+                  if(Character.isDigit(in[i])){
+                    count++;
+                  }
                 }
+                
+                // TREAT ERROR
+                if(count == in.length && count!=0 && !value.equals("")){
+                    valueInt=Integer.parseInt(value);
+                }
+                    if(valueInt>0 && valueInt<=5)
+                    System.out.println(value.equals("5")?"Exiting":"Type the "+attributes[valueInt-1]+" ");
                 // 
                 if(value.equals("1")){
                     value = test.nextLine();

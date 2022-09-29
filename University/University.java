@@ -17,7 +17,7 @@ public class University{
         "Add Student",
         "Add Professor",
         "Create ClassRoom",
-        "Show All Classrooms",
+        "Show All Classrooms",  
         "Show Available Classrooms",
         "List Available Courses"
         };
@@ -33,15 +33,15 @@ public class University{
             if(value.equals("1")){
                 rg.showCourses();
             }else if(value.equals("2")){
-                rg.addCourse();
-            }else if(value.equals("3")){
                 rg.showStudents();
-            }else if(value.equals("4")){
-                rg.addStudent();
-            }else if(value.equals("5")){
-                rg.addProfessor();
-            }else if(value.equals("6")){
+            }else if(value.equals("3")){
                 rg.showProfessors();
+            }else if(value.equals("4")){
+                rg.addCourse();
+            }else if(value.equals("5")){
+                rg.addStudent();
+            }else if(value.equals("6")){
+                rg.addProfessor();
             }else if(value.equals("7")){
                 rg.addClassRoom();
             }else if(value.equals("8")){
