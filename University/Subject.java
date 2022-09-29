@@ -15,9 +15,6 @@ public class Subject{
   private String name;
   private String description;
   private int gradePoint;
-
-
-
   ClassRoom classRoom;
 
 
@@ -32,7 +29,7 @@ public class Subject{
       value=input.nextLine();
       
       
-    }while(value.equals("1"));  
+    }while(!value.equals("1"));  
   }
 
   public String getName() {
@@ -60,6 +57,10 @@ public class Subject{
   }
   public ClassRoom getClassRoom() {
     return classRoom;
+  }
+
+  public int getClassRoomId(){
+    return classRoom.getClassRoom();
   }
 
   public void setClassRoom(ClassRoom classRoom) {

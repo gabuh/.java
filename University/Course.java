@@ -29,7 +29,7 @@ public class Course{
   public String getSubjectsNames(){
     String item="";
     for(int i=0;i<subjects.size();i++){
-      item=i+" "+this.subjects.get(i).getName()+" ,"+item;
+      item=this.subjects.get(i).getName()+" Roomid:"+this.subjects.get(i).getClassRoomId()+","+item;
     }
     return item;
   }

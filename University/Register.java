@@ -113,7 +113,7 @@ public class Register{
                         count++;
                     }
                }
-               if(count==in.length && count!=0){
+               if(count==in.length && count!=0 && !value.equals("")){
                     searchStudentDetails(Integer.parseInt(value));
                 }
 
@@ -183,11 +183,11 @@ public class Register{
                     count++;
                 }
               }
-              if(count == in.length){
-                  intInput=Integer.parseInt(test.nextLine());
+              if(count == in.length&& !input.equals("")){
+                  intInput=Integer.parseInt(input);
               }
               
-              if(intInput<attributes.length){
+              if(intInput<attributes.length && intInput>0){
                   System.out.println(intInput!=5?"Type the "+attributes[intInput-1]+" ":"Bye");
               }
               if(intInput==1){
@@ -202,7 +202,7 @@ public class Register{
                         count=0;
                         intInput=-1;
                         showClassRoomsAvailable();
-                        System.out.println("Choose one Room (type its id) or type (0) to exit");
+                        System.out.println("Choose one Room (type its id) or press [Enter] to exit");
                         input=test.nextLine();
                         in=input.toCharArray();
                         for(int i=0;i<in.length;i++){
@@ -210,28 +210,20 @@ public class Register{
                                 count++;
                             }
                         }
-                        if(count==in.length){
+                        if(count==in.length&& !input.equals("")){
                             intInput=Integer.parseInt(input);
                         }
 
-                        if(intInput==0){
-                            break;
-                        }else if(getClassRoom(intInput)==null){
+                        if(getClassRoom(intInput)==null){
                             continue;
                         }else{
                             classRoom=getClassRoom(intInput);
-                            course.addSubject(classRoom);  //addSubject
+                            course.addSubject(classRoom);
+                            break; //addSubject
                         }
                        
-                    }while(intInput!=0);
+                    }while(intInput!=-1);
                     
-
-
-
-
-
-
-
               }else if(intInput==4){
                       if(course.getName()==null){
                           System.out.println("You must give the course a name");
@@ -275,7 +267,7 @@ public class Register{
                         count++;
                     }
                }
-               if(count==in.length){
+               if(count==in.length && !value.equals("")){
                     searchCourseDetails(Integer.parseInt(value));
                 }
 
@@ -334,10 +326,10 @@ public class Register{
                         count++;
                     }
                 }
-                if(count==in.length){
+                if(count==in.length && !value.equals("")){
                     valueInt=Integer.parseInt(value);
                 }
-                if(valueInt<attributes.length){
+                if(valueInt<attributes.length && valueInt>0){
                     System.out.println(valueInt!=5?"Type the "+attributes[valueInt-1]+" ":"Bye");
                 }
                 if(valueInt==1){
@@ -396,7 +388,7 @@ public class Register{
                         count++;
                     }
                }
-               if(count==in.length){
+               if(count==in.length && !value.equals("")){
                     searchProfessorDetails(Integer.parseInt(value));
                 }
 
@@ -460,7 +452,7 @@ public class Register{
             }else{
                 System.out.println("There are:");
                 for(int i=0;i<classRooms.size();++i){
-                        System.out.println(classRooms.get(i).getUse()!=false?i+"> id"+classRooms.get(i).getClassRoom()+"Busy":i+"> id"+classRooms.get(i).getClassRoom()+"Avaiable");
+                        System.out.println(classRooms.get(i).getUse()==true?i+"> id"+classRooms.get(i).getClassRoom()+"Busy":i+"> id"+classRooms.get(i).getClassRoom()+" Avaiable");
                 }
 
             }
@@ -468,12 +460,12 @@ public class Register{
 
         public ClassRoom getClassRoom(int idClassRoom){ 
             for(int i=0;i<classRooms.size();i++){
-                if(classRooms.get(i).getClassRoom()==idClassRoom && classRooms.get(i).getUse()!=false){
+                if(classRooms.get(i).getClassRoom()==idClassRoom && classRooms.get(i).getUse()==false){
                     return classRooms.get(i);
                 }
     
             }
-            return classRoom;
+            return null;
         }
         
 }
