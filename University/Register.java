@@ -17,14 +17,16 @@ public class Register{
     List <Professor> professors = new ArrayList<Professor>();
     List <Course> courses = new ArrayList<Course>();
     List <ClassRoom> classRooms = new ArrayList<ClassRoom>();
+    Authentication user = new Authentication();
 
-        int courseBuff = 1;
-        int classRoombuff=100;
-        Scanner test=new Scanner(System.in);
-        Student student;
-        Course course;
-        Professor professor;
-        ClassRoom classRoom;
+
+        private int courseBuff = 1;
+        private int classRoombuff=100;
+        private Scanner test=new Scanner(System.in);
+        private Student student;
+        private Course course;
+        private Professor professor;
+        private ClassRoom classRoom;
         
         public void addStudent(){
         student = new Student(Buff);
@@ -161,6 +163,10 @@ public class Register{
               test.nextLine();
           }
       
+        public void rollCourse(){
+
+        }
+
         public void addCourse(){
           course=new Course(courseBuff);
           String input;
