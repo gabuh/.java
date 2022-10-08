@@ -1,8 +1,22 @@
-# To-Do
+### Use Case 
+ 
 
-- [x] Show up students details
-    - [ ] fix the grade when it returns
-- [x] Show up professor details
-- [ ] Make students be able to roll a course
-- [ ] make able to professor choose a course
+!["Use case"](/University/caseDiagram.png)
 
+--- 
+
+<details>
+<summary> ClassDiagram </summary>
+
+!["classDiagram"](/University/classDiagram.png)
+
+</details>
+
+---
+### To-Do
+
+- [ ] Create student
+- [ ] 
+
+
+<button></button>

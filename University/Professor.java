@@ -1,26 +1,18 @@
-/* @author Gabriel n.
- * github: https://github.com/gabuh
- * 
- * About:  
- * 
- */
-public class Professor extends Person{
-    private int idProfessor;
-    Subject subject;
 
-    
-    Professor(int id){
-        idProfessor=id;
+
+public class Professor extends Pessoa{
+    private double horaAula;
+
+    Professor(String nome, int CPF, double horaAula){
+        super(nome, CPF);
+        this.horaAula=horaAula;
     }
     
-    public int getIdProfessor() {
-        return idProfessor;
+    public void imprime(){
+        System.out.println("Nome: "+this.getNome());
+        System.out.println("Hora Aula: "+horaAula);
     }
 
-    public String getSubjectName(){
-        if(subject!=null){
-            return subject.getName();
-        }
-        return null;
-    }
 }
+
+ 
