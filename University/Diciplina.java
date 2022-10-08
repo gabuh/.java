@@ -1,4 +1,3 @@
-package Admin;
 
 public class Diciplina {
     private String nome;

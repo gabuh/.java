@@ -1,4 +1,4 @@
-package Admin;
+
 
 public class Professor extends Pessoa{
     private double horaAula;
@@ -8,5 +8,11 @@ public class Professor extends Pessoa{
         this.horaAula=horaAula;
     }
     
+    public void imprime(){
+        System.out.println("Nome: "+this.getNome());
+        System.out.println("Hora Aula: "+horaAula);
+    }
 
 }
+
+ 

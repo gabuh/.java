@@ -10,17 +10,21 @@ public class Aluno extends Pessoa{
         this.boletim= new Boletim();
     }
 
-    public void addDiciplina(Diciplina diciplina){
-        this.boletim.addDiciplina(diciplina,0,0,0);
+    public void addDiciplina(Diciplina diciplina,int ano,int semestre){
+        this.boletim.addDiciplina(diciplina,0,ano,semestre);
     }
 
-    public void imprimirAluno(){
-        System.out.println(this.getNome());
-        System.out.println(this.matricula);
+    public void mudarNota(String siglaDiciplina){
+        this.boletim.mudarNota(siglaDiciplina);
     }
 
-    public void imprimirBoletim(){
-        boletim.imprimir();
+    public void imprime(){
+        System.out.println("Nome: "+this.getNome());
+        System.out.println("Matricula: "+this.matricula);
+    }
+
+    public void imprimeBoletim(){
+        boletim.imprime();
     }
 
 }

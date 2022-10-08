@@ -1,4 +1,3 @@
-package Admin;
 
 import java.util.ArrayList;
 
@@ -7,15 +6,15 @@ public class Curso {
     private String nivel;
     private ArrayList<Diciplina> diciplinas=new ArrayList<Diciplina>();
 
-    public Curso(String nome,String nivel){
+    Curso(String nome,String nivel){
         this.nome = nome;
         this.nivel = nivel;
     }
 
-    public Curso(String nome,String nivel ,Diciplina diciplinas ){
-        Curso(nome, nivel);
-        this.diciplinas.add(diciplinas);
-    }
+    // Curso(String nome,String nivel ,Diciplina diciplinas ){
+    //     this.Curso(nome, nivel);
+    //     this.diciplinas.add(diciplinas);
+    // }
 
     public void addDiciplina(Diciplina diciplina){
         diciplinas.add(diciplina);
@@ -26,7 +25,7 @@ public class Curso {
         System.out.print("Nivel: "+nivel);
         if(diciplinas.size()!=0){
             for(int i=0;i<diciplinas.size();i++){
-                System.out.println("Diciplina: "+diciplinas.get(i).getNome()+" Sigla: "+this.diciplinas.get(i).getSigle());
+                System.out.println("Diciplina: "+diciplinas.get(i).getNome()+" Sigla: "+diciplinas.get(i).getSigla());
             }
         }else{
             System.out.println("Nao tem Diciplina");
