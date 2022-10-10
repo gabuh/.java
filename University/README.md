@@ -14,9 +14,13 @@
 
 ---
 ### To-Do
-
-- [ ] Create student
-- [ ] 
+---
+#### Register
+#####  - Functions
+- [x] Create Student
+- [x] Create Professor
+- [x] Create Course
+- [x] Create Subject 
 
 
 <button></button>
