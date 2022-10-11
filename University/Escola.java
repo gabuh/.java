@@ -2,6 +2,7 @@
 
 public class Escola{
     public static void main(String[] args){
+        Registro rg= new Registro();
         
         Curso curso1 = new Curso("Analise e desenvolvimento de Sistemas", "Superior");
         Aluno aluno1=new Aluno("Gabriel", 12121,98);
@@ -28,6 +29,15 @@ public class Escola{
         System.out.println(diciplina1.getProfessor().getNome());
         
         professor2.imprime();
+
+        // rg.addCurso();
+        // rg.addDiciplina();
+        rg.addProfessor();
+        rg.addAluno();
+
+
+
+
 
     }
 } 
