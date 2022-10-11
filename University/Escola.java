@@ -1,8 +1,11 @@
 
-
+import java.util.Scanner;
 public class Escola{
     public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+        String strInput;
         Registro rg= new Registro();
+        Authentication aut = new Authentication(rg);
         
         Curso curso1 = new Curso("Analise e desenvolvimento de Sistemas", "Superior");
         Aluno aluno1=new Aluno("Gabriel", 12121,98);
@@ -34,10 +37,77 @@ public class Escola{
         // rg.addDiciplina();
         rg.addProfessor();
         rg.addAluno();
+        do{
+            System.out.println("Escolha a opcao digitando:\n[1] logar\n[exit] sair");
+            strInput=input.nextLine();
+            String option[]={
+                "ADC Professor",
+                "ADC Aluno",
+                "Listar Cursos",
+                "Matricular-se em um Curso",
+                "Visualizar Boletim",
+                "Deslogar",
+                "ADC Diciplina",
+            };
 
+            if(strInput.equals("1")){
+                aut.login();
+                if(aut.user != null){
 
-
-
+                    int opSize = option.length;
+                    int skillSize = aut.user.getSkillSize();
+                do{
+                aut.user.getNome();
+                for(int i=0;i<skillSize;i++){
+                    //try tosolve it
+                    for(int j=0;j<opSize;j++){
+                        if(aut.user.getSkill(i).equals(option[j])){
+                                System.out.println(option[i]);
+                            }  
+                    }
+                } 
+                strInput=input.nextLine();
+                switch (strInput) {
+                    case "1":
+                        rg.addProfessor();
+                        break;
+                    case "2":
+                        rg.addAluno();
+                        break;
+                    case "3":
+                        // rg.imprmirCursos();
+                        break;
+                    case "4":
+                    // rg.matricula();
+                        break;
+                        case "5":
+                        aut.user.imprimeBoletim();
+                        break;
+                        case "6":
+                        aut.loginStatus=false;
+                        break;
+                        case "7":
+                        rg.addDiciplina();
+                        break;
+                        // case "2":
+                        
+                        //     break;
+                        // case "2":
+                        
+                        //     break;
+                        // case "2":
+                        
+                        // break;
+                        default:
+                        System.out.println("Trying");
+                        break;
+                    }       
+                    
+                }while(aut.loginStatus!=false); 
+            }
+        }
+            
+        }while(strInput.equalsIgnoreCase("exit"));
 
     }
 } 

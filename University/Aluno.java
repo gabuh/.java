@@ -3,6 +3,7 @@
 public class Aluno extends Pessoa{
     private int matricula;
     private Boletim boletim;
+    private String skill[] = {"Listar Cursos","Matricular-se em um Curso","Visualizar Boletim","Deslogar"};
 
     Aluno(String nome, int CPF,int matricula){
         super(nome, CPF);
@@ -25,6 +26,17 @@ public class Aluno extends Pessoa{
 
     public void imprimeBoletim(){
         boletim.imprime();
+    }
+
+    public String skill(int index){
+        if(index>skill.length){
+            return null;
+        }
+        return skill[index];
+    }
+
+    public int skillSize(){
+        return skill.length;
     }
 
 }
