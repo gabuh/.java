@@ -1,4 +1,5 @@
 
+
 public class Diciplina {
     private String nome;
     private String sigla;
@@ -11,7 +12,14 @@ public class Diciplina {
         this.cargaHoraria = cargaHoraria;
     }
 
-    public void setProfessor(Professor professor) {
+    public void imprimirDiciplina(){
+        System.out.println("Dic: "+nome);
+        System.out.println("Sigla: "+sigla);
+        if(professor!=null)
+            System.out.println("Professor: "+professor.getNome());
+    }
+
+    public void setProfessor(Professor professor){
         this.professor = professor;
     }
 
@@ -19,7 +27,7 @@ public class Diciplina {
         return professor;
     }
 
-    public String getNome() {
+    public String getNome() {   
         return nome;
     }
 
@@ -30,5 +38,7 @@ public class Diciplina {
     public int getCargaHoraria() {
         return cargaHoraria;
     }
+
+    
     
 }
