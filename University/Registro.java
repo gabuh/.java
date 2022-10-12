@@ -11,6 +11,8 @@ public class Registro {
     private int buffMatricula=10000;
 
     Registro(){
+        System.out.println("Foram criadas algumas entidades para facilitar o o entendimento, porem para que um curso contenha diciplinas e preciso logar com usuario ADMIN com cpf = 123456789\nFaca o login com Admin para cria + entidades");
+        System.out.println("Lista de entidades ja criadas\nAluno Gabriel cpf = 451451\nAluno Daniel cpf = 90121\nProfessor Leo Motta cpf = 343421\nProfessor Beletti cpf = 872387\nCurso ADS \nDiciplinas Logica II e Sistemas Operacionais");
         Diciplina diciplina1 = new Diciplina("Logica II", "LGA2", 30);
         diciplinas.add(diciplina1);
         Admin admin = new Admin("Admin",123456789);
@@ -18,14 +20,12 @@ public class Registro {
         Diciplina diciplina = new Diciplina("Sistemas Operacionais", "SOPA1", 90);
         diciplinas.add(diciplina);
         Curso curso1 = new Curso("Analise e desenvolvimento de Sistemas", "Superior");
-        curso1.addDiciplina(diciplina1);
-        curso1.addDiciplina(diciplina);
         cursos.add(curso1);
         Aluno aluno1=new Aluno("Gabriel", 451451,98);
         alunos.add(aluno1);
         Aluno aluno2=new Aluno("Daniel",90121,2);
         alunos.add(aluno2);
-        Professor professor1=new Professor("Leo",343421,30.0);
+        Professor professor1=new Professor("Leo Motta",343421,30.0);
         professores.add(professor1);
         Professor professor2=new Professor("Beletti",872387,90.0);
         professores.add(professor2);

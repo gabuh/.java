@@ -1,13 +1,13 @@
 
 public class Admin extends Pessoa{
     private String skill[]={
-        "ADC Professor",
-        "ADC Aluno",
+        "Adicionar Professor",
+        "Adicionar Aluno",
         "Listar Todos os Cursos",
         "Matricular-se em um Curso",
         "Visualizar Boletim",
         "Deslogar", 
-        "ADC Diciplina",
+        "Adicionar Diciplina",
         "Mostrar suas Diciplinas",
         "Ministrar uma Diciplina",
         "Listar Todas as Diciplinas",

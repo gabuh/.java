@@ -13,11 +13,6 @@ public class Curso {
         this.nivel = nivel;
     }
 
-    // Curso(String nome,String nivel ,Diciplina diciplinas ){
-    //     this.Curso(nome, nivel);
-    //     this.diciplinas.add(diciplinas);
-    // }
-
     public void addDiciplina(Diciplina diciplina){
         if(!diciplinas.contains(diciplina)){
             diciplinas.add(diciplina);
@@ -80,7 +75,7 @@ public class Curso {
                     flag++;
                 }
             }
-            if(flag==in.length){
+            if(flag==in.length && flag!=0){
                 intInput = Integer.parseInt(strInput);
                 return intInput;
             }else if(strInput.equalsIgnoreCase("default")){

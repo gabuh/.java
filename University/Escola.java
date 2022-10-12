@@ -7,50 +7,24 @@ public class Escola{
         Aluno aluno;
         Scanner input = new Scanner(System.in);
         String strInput;
+        int intInput;
+        char in[];
+        int flag;
         Registro rg= new Registro();
         Authentication aut = new Authentication(rg);
 
-          
-        // Curso curso1 = new Curso("Analise e desenvolvimento de Sistemas", "Superior");
-        // Aluno aluno1 = new Aluno("Gabriel", 12121,98);
-        // Aluno aluno2 = new Aluno("Daniel",90121,2);
-        // Professor professor1 = new Professor("Leo",343421,30.0);
-        // Professor professor2 = new Professor("Beletti",872387,90.0);
 
-        // Diciplina diciplina1 = new Diciplina("Logica II", "LGA2", 30);
-
-        // diciplina1.setProfessor(professor1);
-        
-        // curso1.addDiciplina(diciplina1);
-
-        // aluno1.addDiciplina(curso1.getDiciplinas("LGA2"),2022,1);        
-
-        // aluno1.imprime();
-        // aluno2.imprime();
-        // aluno1.imprimeBoletim();
-        // aluno2.imprimeBoletim();
-        // // aluno1.mudarNota("LGA2");
-
-
-        // System.out.println(diciplina1.getProfessor().getNome());
-        
-        // professor2.imprime();
-
-        // rg.addCurso();
-        // rg.addDiciplina();
-        // rg.addProfessor();
-        // rg.addAluno();
         do{
             System.out.println("Escolha a opcao digitando:\n[1] logar\n[exit] sair");
             strInput=input.nextLine();
             String option[]={
-                "ADC Professor",
-                "ADC Aluno",
+                "Adicionar Professor",
+                "Adicionar Aluno",
                 "Listar Todos os Cursos",
                 "Matricular-se em um Curso",
                 "Visualizar Boletim",
                 "Deslogar", 
-                "ADC Diciplina",
+                "Adicionar Diciplina",
                 "Mostrar suas Diciplinas",
                 "Ministrar uma Diciplina",
                 "Listar Todas as Diciplinas",
@@ -73,7 +47,8 @@ public class Escola{
                     int opSize = option.length;
                     int skillSize = aut.user.getSkillSize();
                     while(aut.loginStatus!=false){
-                        System.out.println(aut.user.getNome());
+                        flag=0;
+                        System.out.println(">>"+aut.user.getNome()+"<<");
                         for(int i=0;i<skillSize;i++){
                             //try tosolve it
                             for(int j=0;j<opSize;j++){
@@ -82,8 +57,33 @@ public class Escola{
                                     }  
                             }
                         } 
+                        System.out.print("Escolha a opcao digitando o numero: ");
                         strInput=input.nextLine();
+                        in=strInput.toCharArray();
+                        for(int i=0;i<in.length;i++){
+                            if(Character.isDigit(in[i])){
+                                flag++;
+                            }
+                        }
+                        if(in.length==flag && flag != 0){
+                            flag=0;
+                            intInput = Integer.parseInt(strInput);  
+                            if(intInput<22 && intInput!=0){
+                                for(int i=0;i<skillSize;i++){
+                                    if(!aut.user.getSkill(i).equals(option[intInput-1])){
+                                        flag++;
+                                    }
+                                }
+                                if(flag != skillSize -1){
+                                    strInput="false";
+                                }
+                            }
+
+                        }
+
                             switch (strInput) {
+                                case "false":
+                                    break;
                                 case "1":
                                     rg.addProfessor();
                                     break;
@@ -163,10 +163,7 @@ public class Escola{
                                     if(aluno!=null && verify == true){
                                         aut.user.mudarNota(aluno,sigla);
                                     }
-                                    break;
-                                    // case "2":
-                                    
-                                    // break;
+                                    break; 
                                     default:
                                     System.out.println("Trying");
                                     break;

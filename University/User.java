@@ -51,7 +51,7 @@ public class User {
         if(professor!=null){
             aluno.mudarNota(sigla);
         }else{
-            System.out.println("Voce nao e Professor\n Press Enter");
+            System.out.println("Negado!\n gentileza efetue o login com um usuario professor\n Press Enter");
             input.nextLine();
         }
     }
@@ -71,7 +71,7 @@ public class User {
         if(aluno!=null){
             this.aluno.addCurso(curso);
         }else{
-            System.out.println("Voce nao e Aluno\n Press Enter");
+            System.out.println("Negado!\n gentileza efetue o login com um usuario Aluno\n Press Enter");
             input.nextLine();
         }
     }
@@ -80,7 +80,7 @@ public class User {
         if(professor!=null){
             this.professor.addDiciplina(diciplina);
         }else{
-            System.out.println("Voce nao e Professor\n Press Enter");
+            System.out.println("Negado!\n gentileza efetue o login com um usuario professor\n Press Enter");
             input.nextLine();
         }
         
@@ -90,7 +90,7 @@ public class User {
         if(professor!=null){
             this.professor.imprimeDiciplinas();
         }else{
-            System.out.println("Voce nao e Professor\n Press Enter");
+            System.out.println("Negado!\n gentileza efetue o login com um usuario professor\n Press Enter");
             input.nextLine();
         }
     }
@@ -99,7 +99,7 @@ public class User {
         if(aluno!=null){
             this.aluno.imprimeBoletim();
         }else{
-            System.out.println("Voce nao e Aluno\n Press Enter");
+            System.out.println("Negado!\n gentileza efetue o login com um usuario Aluno\n Press Enter");
             input.nextLine();
         }
     }
@@ -120,7 +120,7 @@ public class User {
         if(aluno!=null){
             Turma.imprimeTurmasDeAluno(aluno.getNome());
         }else{
-            System.out.println("Voce nao e Aluno\n Press Enter");
+            System.out.println("Negado!\n gentileza efetue o login com um usuario Aluno\n Press Enter");
             input.nextLine();
         }
     }
