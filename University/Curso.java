@@ -19,11 +19,15 @@ public class Curso {
     // }
 
     public void addDiciplina(Diciplina diciplina){
-        diciplinas.add(diciplina);
-        semestres.add(semesterRequest());
+        if(!diciplinas.contains(diciplina)){
+            diciplinas.add(diciplina);
+            semestres.add(semesterRequest());
+        }else{
+            System.out.println("Esta diciplina ja fora adicionada");
+            input.nextLine();
+        }
         
     }
-
 
     
     public void imprimirCurso(){
@@ -35,6 +39,7 @@ public class Curso {
             }
         }else{
             System.out.println("Nao tem Diciplina");
+            input.nextLine();
         }
 
     }

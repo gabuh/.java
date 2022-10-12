@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Date;
 import java.text.SimpleDateFormat;
-
+// import java.util.Scanner;
 
 public class Aluno extends Pessoa{
     private int matricula;
@@ -12,7 +12,11 @@ public class Aluno extends Pessoa{
     "Listar Todos os Cursos",
     "Matricular-se em um Curso",
     "Visualizar Boletim",
-    "Deslogar"};
+    "Deslogar",
+    "Informacoes do Usuario",
+    "Listar suas Turmas"
+};  
+    
 
     Aluno(String nome, int CPF,int matricula){
         super(nome, CPF);
@@ -27,9 +31,12 @@ public class Aluno extends Pessoa{
     public void addCurso(Curso curso){
         ArrayList<Diciplina> diciplinas = curso.getAllDiciplinas();
         ArrayList<Integer> semestres = curso.getAllSemestres();
+    
         if(!diciplinas.isEmpty()){
             for(int i=0;i<diciplinas.size();i++){
+                if(!this.boletim.getDiciplinas().contains(diciplinas.get(i)))
                 addDiciplina(diciplinas.get(i),Integer.parseInt(formatter.format(date)),semestres.get(i));
+                Turma.addTurma(this, diciplinas.get(i));
             }
         }
     }    
@@ -40,7 +47,9 @@ public class Aluno extends Pessoa{
 
     public void imprime(){
         System.out.println("Nome: "+this.getNome());
+        System.out.println("CPF: "+this.getCPF());
         System.out.println("Matricula: "+this.matricula);
+   
     }
 
     public void imprimeBoletim(){

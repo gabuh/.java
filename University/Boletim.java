@@ -7,7 +7,7 @@ public class Boletim {
     private ArrayList<Double> notas = new ArrayList<Double>();
     private ArrayList<Integer> anos = new ArrayList<Integer>();
     private ArrayList<Integer> semestres = new ArrayList<Integer>();
-    
+    Scanner input=new Scanner(System.in);
     public void addDiciplina(Diciplina diciplinas, double notas, int anos, int semestres) {
         this.diciplinas.add(diciplinas);
         this.notas.add(notas);
@@ -16,7 +16,6 @@ public class Boletim {
     }
 
     public void mudarNota(String siglaDiciplina){
-        Scanner input=new Scanner(System.in);
         double dInput;
         String strInput;
         char in[];
@@ -49,7 +48,8 @@ public class Boletim {
                 }
             }
         }else{
-            System.out.println("Nao esta Cursando");
+            System.out.println("Nao esta Cursando\n Press Enter");
+            input.nextLine();
         }
 
     }
@@ -62,10 +62,17 @@ public class Boletim {
                 System.out.println("Ano :"+anos.get(i));
                 System.out.println("Semestre: "+semestres.get(i));
             }
+            System.out.print(" Press Enter");
+            input.nextLine();
         }else{
-            System.out.println("Nao esta cursando");
+            System.out.println("Nao esta cursando\n Press Enter");
+            input.nextLine();
         }
     }  
 
+
+    public ArrayList<Diciplina> getDiciplinas(){
+        return this.diciplinas;
+    }
 
 }

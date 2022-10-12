@@ -6,9 +6,11 @@ public class Professor extends Pessoa{
     private String skill[]={
         "Listar Todos os Cursos",
         "Ministrar uma Diciplina",
-        "Mostrar Diciplinas",
+        "Mostrar suas Diciplinas",
         "Deslogar",
-        "Listar Todas as Diciplinas"
+        "Listar Todas as Diciplinas",
+        "Informacoes do Usuario",
+        "Alterar nota de Aluno"
     };
     private Scanner input = new Scanner(System.in);
 
@@ -17,9 +19,11 @@ public class Professor extends Pessoa{
         this.horaAula=horaAula;
     }
     
+  
     public void imprime(){
         System.out.println("Nome: "+this.getNome());
-        System.out.println("Hora Aula: "+horaAula);
+        System.out.println("CPF: "+this.getCPF());
+        System.out.println("Hora Aula: "+this.horaAula);
     }
 
     public void imprimeDiciplinas(){
@@ -28,6 +32,13 @@ public class Professor extends Pessoa{
         }
         System.out.println("Pressione Enter");
         input.nextLine();
+    } 
+
+    public boolean verificaSigla(String sigla){
+        if(siglasDeDiciplinas.contains(sigla)){
+            return true;
+        }
+        return false;
     }
 
 
