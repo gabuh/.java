@@ -1,13 +1,12 @@
-
+import java.util.ArrayList;
 public class Turma {
-    Aluno aluno;
-    Diciplina diciplina;
+    private static ArrayList<Aluno> alunos = new ArrayList<Aluno>();;
+    private static ArrayList<Diciplina> diciplinas = new ArrayList<Diciplina>();
 
-Turma(Aluno aluno,Diciplina diciplina){
-    this.aluno=aluno;
-    this.diciplina=diciplina;
+
+    public static void addTurma(Aluno aluno,Diciplina diciplina){
+        alunos.add(aluno);
+        diciplinas.add(diciplina);
+    }
+
 }
-
-
-}
-

@@ -6,12 +6,13 @@ public class Escola{
         String strInput;
         Registro rg= new Registro();
         Authentication aut = new Authentication(rg);
-        
+
+          
         Curso curso1 = new Curso("Analise e desenvolvimento de Sistemas", "Superior");
-        Aluno aluno1=new Aluno("Gabriel", 12121,98);
-        Aluno aluno2=new Aluno("Daniel",90121,2);
-        Professor professor1=new Professor("Leo",343421,30.0);
-        Professor professor2=new Professor("Beletti",872387,90.0);
+        Aluno aluno1 = new Aluno("Gabriel", 12121,98);
+        Aluno aluno2 = new Aluno("Daniel",90121,2);
+        Professor professor1 = new Professor("Leo",343421,30.0);
+        Professor professor2 = new Professor("Beletti",872387,90.0);
 
         Diciplina diciplina1 = new Diciplina("Logica II", "LGA2", 30);
 
@@ -25,9 +26,8 @@ public class Escola{
         aluno2.imprime();
         aluno1.imprimeBoletim();
         aluno2.imprimeBoletim();
-        aluno1.mudarNota("LGA2");
+        // aluno1.mudarNota("LGA2");
 
-        
 
         System.out.println(diciplina1.getProfessor().getNome());
         
@@ -35,77 +35,86 @@ public class Escola{
 
         // rg.addCurso();
         // rg.addDiciplina();
-        rg.addProfessor();
-        rg.addAluno();
+        // rg.addProfessor();
+        // rg.addAluno();
         do{
             System.out.println("Escolha a opcao digitando:\n[1] logar\n[exit] sair");
             strInput=input.nextLine();
             String option[]={
                 "ADC Professor",
                 "ADC Aluno",
-                "Listar Cursos",
+                "Listar Todos os Cursos",
                 "Matricular-se em um Curso",
                 "Visualizar Boletim",
-                "Deslogar",
+                "Deslogar", 
                 "ADC Diciplina",
+                "Mostrar Diciplinas",
+                "Ministrar uma Diciplina",
+                "Listar Todas as Diciplinas"
             };
 
             if(strInput.equals("1")){
                 aut.login();
                 if(aut.user != null){
-
                     int opSize = option.length;
                     int skillSize = aut.user.getSkillSize();
-                do{
-                aut.user.getNome();
-                for(int i=0;i<skillSize;i++){
-                    //try tosolve it
-                    for(int j=0;j<opSize;j++){
-                        if(aut.user.getSkill(i).equals(option[j])){
-                                System.out.println(option[i]);
-                            }  
-                    }
-                } 
-                strInput=input.nextLine();
-                switch (strInput) {
-                    case "1":
-                        rg.addProfessor();
-                        break;
-                    case "2":
-                        rg.addAluno();
-                        break;
-                    case "3":
-                        // rg.imprmirCursos();
-                        break;
-                    case "4":
-                    // rg.matricula();
-                        break;
-                        case "5":
-                        aut.user.imprimeBoletim();
-                        break;
-                        case "6":
-                        aut.loginStatus=false;
-                        break;
-                        case "7":
-                        rg.addDiciplina();
-                        break;
-                        // case "2":
-                        
-                        //     break;
-                        // case "2":
-                        
-                        //     break;
-                        // case "2":
-                        
-                        // break;
-                        default:
-                        System.out.println("Trying");
-                        break;
-                    }       
-                    
-                }while(aut.loginStatus!=false); 
-            }
-        }
+                    while(aut.loginStatus!=false){
+                        System.out.println(aut.user.getNome());
+                        for(int i=0;i<skillSize;i++){
+                            //try tosolve it
+                            for(int j=0;j<opSize;j++){
+                                if(aut.user.getSkill(i).equals(option[j])){
+                                        System.out.println("["+(j+1)+"]"+option[j]);
+                                    }  
+                            }
+                        } 
+                        strInput=input.nextLine();
+                            switch (strInput) {
+                                case "1":
+                                    rg.addProfessor();
+                                    break;
+                                case "2":
+                                    rg.addAluno();
+                                    break;
+                                case "3":
+                                    rg.imprimeCursos();
+                                    break;
+                                case "4":
+                                        Curso curso = rg.imprimeCursosAndGetCurso();
+                                        if(curso!=null)
+                                            aut.user.addCurso(curso);
+                                    break;
+                                    case "5":
+                                        aut.user.imprimeBoletim();
+                                    break;
+                                    case "6":
+                                        aut.loginStatus=false;
+                                    break;
+                                    case "7":
+                                        rg.addDiciplina();
+                                    break;
+                                    case "8":
+                                        aut.user.imprimeDiciplinas();
+                                        break;
+                                    case "9":
+                                    Diciplina diciplina = rg.imprimeDiciplinasAndGetDiciplina();
+                                        if(diciplina!=null)
+                                            aut.user.addDiciplina(diciplina);
+                                        break;
+                                    case "10":
+                                        rg.imprimeDiciplinas();
+                                    break;
+                                    // case "2":
+                                    
+                                    // break;
+                                    default:
+                                    System.out.println("Trying");
+                                    break;
+                                }       //switch
+                            
+                    }  // if
+                } //if
+            }//if
             
         }while(strInput.equalsIgnoreCase("exit"));
 

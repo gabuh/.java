@@ -41,6 +41,9 @@ public class Authentication{
     }
 
     public boolean verifyLogin(){
+        if(loginStatus!=true){
+            this.user=null;
+        }
         return loginStatus;
     }
 

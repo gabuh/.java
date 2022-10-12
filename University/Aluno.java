@@ -1,9 +1,18 @@
+import java.util.ArrayList;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 
 public class Aluno extends Pessoa{
     private int matricula;
     private Boletim boletim;
-    private String skill[] = {"Listar Cursos","Matricular-se em um Curso","Visualizar Boletim","Deslogar"};
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy");
+    Date date = new Date();
+    private String skill[] = {
+    "Listar Todos os Cursos",
+    "Matricular-se em um Curso",
+    "Visualizar Boletim",
+    "Deslogar"};
 
     Aluno(String nome, int CPF,int matricula){
         super(nome, CPF);
@@ -14,6 +23,16 @@ public class Aluno extends Pessoa{
     public void addDiciplina(Diciplina diciplina,int ano,int semestre){
         this.boletim.addDiciplina(diciplina,0,ano,semestre);
     }
+
+    public void addCurso(Curso curso){
+        ArrayList<Diciplina> diciplinas = curso.getAllDiciplinas();
+        ArrayList<Integer> semestres = curso.getAllSemestres();
+        if(!diciplinas.isEmpty()){
+            for(int i=0;i<diciplinas.size();i++){
+                addDiciplina(diciplinas.get(i),Integer.parseInt(formatter.format(date)),semestres.get(i));
+            }
+        }
+    }    
 
     public void mudarNota(String siglaDiciplina){
         this.boletim.mudarNota(siglaDiciplina);

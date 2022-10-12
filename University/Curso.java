@@ -1,11 +1,13 @@
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Curso {
     private String nome;
     private String nivel;
+    Scanner input = new Scanner(System.in);
     private ArrayList<Diciplina> diciplinas=new ArrayList<Diciplina>();
-
+    private ArrayList<Integer> semestres = new ArrayList<Integer>();
     Curso(String nome,String nivel){
         this.nome = nome;
         this.nivel = nivel;
@@ -18,11 +20,15 @@ public class Curso {
 
     public void addDiciplina(Diciplina diciplina){
         diciplinas.add(diciplina);
+        semestres.add(semesterRequest());
+        
     }
+
+
     
     public void imprimirCurso(){
         System.out.println("Curso: "+nome);
-        System.out.print("Nivel: "+nivel);
+        System.out.println("Nivel: "+nivel);
         if(diciplinas.size()!=0){
             for(int i=0;i<diciplinas.size();i++){
                 System.out.println("Diciplina: "+diciplinas.get(i).getNome()+" Sigla: "+diciplinas.get(i).getSigla());
@@ -45,7 +51,45 @@ public class Curso {
         System.out.println("not found");
         return null;
     }
+
+    public ArrayList<Diciplina> getAllDiciplinas(){
+        return this.diciplinas;
+    }
+    public ArrayList<Integer> getAllSemestres(){
+        return this.semestres;
+    }
     
+
+    public int semesterRequest(){
+        int intInput;
+        String strInput;
+        char in[];
+        int flag;
+        do{
+            flag=0;
+            System.out.print("Digite o semestre: ");
+            strInput=input.nextLine();
+            in=strInput.toCharArray();
+            for(int i=0;i<in.length;i++){
+                if(Character.isDigit(in[i])){
+                    flag++;
+                }
+            }
+            if(flag==in.length){
+                intInput = Integer.parseInt(strInput);
+                return intInput;
+            }else if(strInput.equalsIgnoreCase("default")){
+                flag=-1;
+            }
+
+        }while(flag!=-1);
+            
+        return 0;
+    }
+    
+    public String getNome(){
+        return this.nome;
+    }
 
 
 }
