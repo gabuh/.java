@@ -205,7 +205,7 @@ public  static  void  main(String[]  args)  {
 	System.out.println(hondaDoVizinho.desligarMotorEletrico());
 }
 ```
-É possível notar na aplicação que os detalhes acabam sendo expressados nos níveis superiores da aplicação, podendo até ter relação com a política de negócioo que pode causar acoplamento e depedência.
+É possível notar na aplicação que os detalhes acabam sendo expressados nos níveis superiores da aplicação, podendo até ter relação com a política de negócio. É interessante como a depêndencia das classes é também perceptivél, pois, se houver uma alteração ou uma nova função nas classes de baixo nível é necessário percorrer os níveis relacionados para efetuar uma alteração eficaz.
 
 Saída :
 ```
@@ -264,7 +264,7 @@ protected MotorControle motor;
 }
 ```
 
-**VeiculoMotorizado** não precisa saber de detalhes dos motores, e apenas esperar receber a mensagem que o motor tem a  passar já que sabe o que esperar pelo contrato feito por meio da interface **< MotorControle >**.
+**VeiculoMotorizado** não precisa saber de detalhes dos motores e apenas esperar receber a mensagem que o motor tem a passar já que sabe o que esperar pelo contrato feito por meio da interface **< MotorControle >**.
 
 ---
 Detailed Implementation
@@ -316,7 +316,7 @@ public  static  void  main(String[]  args){
 	System.out.println(hondaDoVizinho.verificarEstado());
 }
 ```
-Neste caso não à um sinal claro de como um motor funciona, se é a gas, diesel ou eletrico, portanto, os níveis superiores não devem se preocupar com os detalhes desse funcionamento.
+Neste caso não há um sinal claro de como um motor funciona, se é a gas, diesel ou eletrico, portanto, os níveis superiores não devem se preocupar com os detalhes desse funcionamento.
 
 Saída :
 ```
