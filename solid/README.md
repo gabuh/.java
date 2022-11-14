@@ -1,6 +1,9 @@
+# Dependency Inversion Principle (DIP) 
 ## Do not Depend Upon Concretions, Depend Upon Abstractions 
 ###### Depend in the direction of abstraction. High level modules should not depend upon low level details.
 ---
+
+Procedural Programming
 
 ```mermaid
 graph TD;
@@ -31,6 +34,8 @@ set2.3 --- set3.5;set2.3 --- set3.6;
 
 It is hard to imagine an architecture that does not make significant use of this principle. We do not want our high level business rules depending upon low level details. I hope that is perfectly obvious. We do not want the computations that make money for us polluted with SQL, or low level validations, or formatting issues. We want isolation of the high level abstractions from the low level details. That separation is achieved by carefully managing the dependencies within the system so that all source code dependencies, especially those that cross architectural boundaries, point towards high level abstractions, not low level details.
 [by Richard C. Martin (2020)](https://blog.cleancoder.com/uncle-bob/2020/10/18/Solid-Relevance.html)
+
+Object Oriented Programming
 
 ```mermaid
 graph TD;
@@ -64,8 +69,6 @@ Something Concrete is volatile, in the other hand something abstract is less vol
 
 Examples
 
-# Dependency Inversion Principle (DIP) 
-
 ## Do not depend upon concretions (Não dependa de implementações concretas)
 ```mermaid
 	flowchart LR
@@ -78,11 +81,14 @@ Examples
 	end
 	h --> det
 ```
+
 ---
-High Level 
 
 #### Exemplo de um simples caso:
- ```java
+
+High Level
+
+```java
 public abstract class  VeiculoMotorizado  extends  Veiculo{  //Alto nivel
 private MotorDiesel motorDiesel; //O ato de criar instâncias é favorável a um código mais concreto.
 private MotorEletrico motorEletrico; // Um código concreto é mais volátil, um abstrato é menos volátil.
@@ -101,6 +107,8 @@ private MotorEletrico motorEletrico; // Um código concreto é mais volátil, um
 }
 ```
 Como teve a necessidade de instânciar os motores, a classe que adotar a postura de **VeiculoMotorizado** tende ter a necessidade indireta de entender o que é trabalhado na classe de baixo nível. É possível visualizar com os diversos métodos para cada instancia diferente criada **ligarMotorDiesel**, **LigarMotorEletrico** e etc...  
+
+---
 
 Detailed Implementation
 ```java
@@ -155,6 +163,8 @@ private MotorEletrico motorEletrico; // Um código concreto é mais volátil, um
 **VeiculoMotorizado** é responsável pelo controle dos motores **MotorGasolina**,  **MotorEletrico**, **MotorDisesel** etc... 
 Tem a necessidade de entender a regra diretamente em que um motor atua como é notável no uso do metodo **setEstado()**.
 
+---
+
 Detailed Implementation
 
 ```java
@@ -169,6 +179,9 @@ public class MotorEletrico{
  //Pegou a ideia
 }
 ```
+
+---
+
 Aplicação do código:
 ```java
 class  Moto  extends  VeiculoMotorizado{  //Alto nivel
@@ -276,6 +289,9 @@ public class  MotorEletrico  implements  MotorControle{
 	//Pegou a ideia
 }
 ```
+
+---
+
 Aplicação do código:
 ```java
 class  Moto  extends  VeiculoMotorizado{
