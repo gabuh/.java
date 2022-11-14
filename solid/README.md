@@ -106,7 +106,7 @@ private MotorEletrico motorEletrico; // Um código concreto é mais volátil, um
 	public  String  desligarMotorEletrico(){  return motorEletrico.desligar();  }
 }
 ```
-Como teve a necessidade de instânciar os motores, a classe que adotar a postura de **VeiculoMotorizado** tende ter a necessidade indireta de entender o que é trabalhado na classe de baixo nível. É possível visualizar com os diversos métodos para cada instancia diferente criada **ligarMotorDiesel**, **LigarMotorEletrico** e etc...  
+Como teve a necessidade de instânciar os motores, a classe que adotar a postura de **VeiculoMotorizado** tende ter a necessidade indireta de entender o que é trabalhado na classe de baixo nível. É possível visualizar com os diversos métodos para cada instancia diferente criada **ligarMotorDiesel()**, **ligarMotorEletrico()** e etc...  
 
 ---
 
@@ -130,6 +130,9 @@ public class MotorEletrico{
 ```
 ---
 #### Pior caso:
+
+High Level
+
 ```java
 public abstract class  VeiculoMotorizado  extends  Veiculo{  //Alto nivel
 private MotorDiesel motorDiesel; //O ato de criar instâncias é favorável a um código mais concreto.
